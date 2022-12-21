@@ -1,4 +1,4 @@
-module Serial.TS
+module TS
   ( tsp,
   )
 where

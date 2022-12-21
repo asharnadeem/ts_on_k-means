@@ -9,4 +9,9 @@ and this project adheres to the
 ## Unreleased
 
 ## 1.0.0.0 - 2022-12-21
+
 Full implementation of Tsk
+
+## 1.0.0.1 - 2022-12-21
+
+Cleanup

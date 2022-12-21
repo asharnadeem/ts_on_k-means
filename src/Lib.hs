@@ -1,12 +1,12 @@
 module Lib (runTsk) where
 
 import Control.Monad (unless, when)
+import Control.Parallel.Strategies (parMap, rpar)
 import Data.Map (toList)
 import KMeans (kmeans)
-import Parallel.TS (tsp)
-import Serial.TS (tsp)
 import System.Environment (getArgs, getProgName)
 import System.Exit (die)
+import TS (tsp)
 import Utils (stateCapitals)
 
 runTsk :: IO ()
@@ -20,10 +20,10 @@ runTsk = do
   unless (strategy == "s" || strategy == "p") $
     die ("usage: " ++ program ++ " <strategy> <num_clusters>")
   let clusters = toList $ kmeans (take k stateCapitals) stateCapitals
-  if strategy == "p"
+  if strategy == "s"
     then do
-      let shortestPaths = map (Serial.TS.tsp . snd) clusters
+      let shortestPaths = map (tsp . snd) clusters
       mapM_ print shortestPaths
     else do
-      let shortestPaths = map (Parallel.TS.tsp . snd) clusters
+      let shortestPaths = parMap rpar (tsp . snd) clusters
       mapM_ print shortestPaths

@@ -1,5 +1,5 @@
 name: tsk
-version: 1.0.0.0
+version: 1.0.0.1
 github: "asharnadeem/tsk"
 license: BSD3
 author: "Ashar Nadeem"
@@ -46,7 +46,7 @@ executables:
       - -O2
       - -threaded
       - -rtsopts
-      - -with-rtsopts=-N
+      - -with-rtsopts=-N4
       - -eventlog
     dependencies:
       - tsk

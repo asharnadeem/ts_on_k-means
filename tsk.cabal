@@ -5,7 +5,7 @@ cabal-version: 1.12
 -- see: https://github.com/sol/hpack
 
 name:           tsk
-version:        1.0.0.0
+version:        1.0.0.1
 description:    Please see the README on GitHub at <https://github.com/githubuser/tsk#readme>
 homepage:       https://github.com/asharnadeem/tsk#readme
 bug-reports:    https://github.com/asharnadeem/tsk/issues
@@ -27,8 +27,7 @@ library
   exposed-modules:
       KMeans
       Lib
-      Parallel.TS
-      Serial.TS
+      TS
       Utils
   other-modules:
       Paths_tsk
@@ -47,7 +46,7 @@ executable tsk-exe
       Paths_tsk
   hs-source-dirs:
       app
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -O2 -threaded -rtsopts -with-rtsopts=-N -eventlog
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -O2 -threaded -rtsopts -with-rtsopts=-N4 -eventlog
   build-depends:
       base >=4.7 && <5
     , containers
